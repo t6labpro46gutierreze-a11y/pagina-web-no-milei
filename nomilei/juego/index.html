@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a20">
+  <meta name="description" content="Duelo arcade de dibujo retro: esquivá los ataques del monstruo Milei y recuperá la última plaza.">
+  <title>La última plaza | Duelo de caricatura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="game.css">
+  <script src="duel.js" defer></script>
+</head>
+<body>
+  <header class="game-header">
+    <a class="back-link" href="../index.html"><span aria-hidden="true">←</span> Volver al sitio</a>
+    <a class="game-wordmark" href="index.html"><span class="brand-symbol">N!</span> NO A MILEI</a>
+    <a class="source-link" href="../paginas/fuentes.html">Fuentes <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="game-page">
+    <section class="game-intro">
+      <p class="eyebrow"><span></span> Arcade satírico / duelo de jefes</p>
+      <h1>LA ÚLTIMA<br><span>PLAZA</span></h1>
+      <p class="intro-copy">Una aventura de caricatura retro: superá oleadas, esquivá las salvas y recuperá la plaza. Cada 10 rondas llega un jefe final con ataques propios.</p>
+      <div class="game-tags"><span>JEFE CADA 10 RONDAS</span><span>OLEADAS PROGRESIVAS</span><span>4 HABILIDADES</span></div>
+    </section>
+    <section class="arcade" aria-label="Duelo arcade La última plaza">
+      <div class="arcade-topbar">
+        <div class="mission-label"><span class="live-dot"></span><span id="game-status">MISIÓN: SUPERÁ LA OLEADA</span></div>
+        <div class="arcade-actions"><span class="score-chip">PUNTOS <b id="score-count">0</b><i>RÉCORD <b id="best-count">0</b></i></span><button class="icon-button" id="pause-button" type="button" aria-label="Pausar partida" title="Pausar partida" disabled>Ⅱ</button><button class="icon-button" id="restart-button" type="button" aria-label="Reiniciar partida" title="Reiniciar partida">↻</button></div>
+      </div>
+      <div class="boss-bar"><span id="boss-bar-label">OLEADA / RIVALES</span><div class="boss-track"><i id="boss-health-fill"></i></div><b id="boss-health-text">3 / 3</b></div>
+      <div class="ability-bar"><span class="ability-name">SÚPER <kbd>E</kbd></span><div class="special-track"><i id="special-fill"></i></div><b id="special-value">0%</b><span class="ability-cooldown" id="parry-status">C · PARRY LISTO</span><span class="ability-cooldown" id="dash-status">X · ESQUIVA LISTA</span></div>
+      <div class="game-stage">
+        <canvas id="game-canvas" width="760" height="520" aria-label="Duelo lateral. Movete con las flechas o WASD, mantené Z o espacio para disparar y usá X para esquivar."></canvas>
+        <div class="game-overlay" id="game-overlay"><div class="overlay-content"><p class="overlay-kicker" id="overlay-kicker">AVENTURA DE DIBUJO RETRO</p><h2 id="overlay-title">La última<br>plaza.</h2><p id="overlay-copy">Superá las oleadas, llená el medidor especial y preparate: cada 10 rondas llega un jefe final.</p><button class="start-button" id="start-button" type="button">Empezar combate <span aria-hidden="true">→</span></button></div></div>
+      </div>
+      <div class="game-hud" aria-live="polite"><div class="hud-item"><span class="hud-label">RONDA</span><span class="level" id="level-count">01</span></div><div class="hud-item"><span class="hud-label">SALUD</span><span class="lives" id="lives-count">♥ ♥ ♥ ♥ ♥</span></div><div class="hud-item timer-item"><span class="hud-label">TIEMPO</span><span class="timer" id="timer-count">01:22</span></div></div>
+    </section>
+    <section class="game-help"><div class="controls-copy"><p class="eyebrow">Cómo jugar</p><h2>Dispará.<br><span>Esquivá.</span></h2><p>Mantené <strong>Z o espacio</strong> para disparar al rival más cercano. Movete con flechas o WASD. Usá <strong>X/Shift</strong> para esquivar, <strong>C</strong> para hacer parry a una salva y <strong>E</strong> cuando el especial llegue al 100%. Cada parry exitoso carga el súper.</p><p class="fiction-note">Aventura original con estética de caricatura clásica de los años 30. El monstruo es una sátira fantástica.</p></div><div class="controls-panel"><div class="keyboard-controls"><span>TECLADO</span><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd><small>WASD · Z/espacio dispara · X esquiva · C parry · E súper · Esc pausa</small></div><div class="touch-controls" aria-label="Controles táctiles"><button type="button" data-key="ArrowUp" aria-label="Mover arriba">↑</button><div><button type="button" data-key="ArrowLeft" aria-label="Mover a la izquierda">←</button><button type="button" data-key="ArrowDown" aria-label="Mover abajo">↓</button><button type="button" data-key="ArrowRight" aria-label="Mover a la derecha">→</button></div><div class="touch-actions"><button type="button" data-key="fire" aria-label="Disparar">●</button><button type="button" data-key="dash" aria-label="Esquivar">↗</button><button type="button" data-key="parry" aria-label="Hacer parry">P</button><button type="button" data-key="special" aria-label="Usar súper">★</button></div><span>CONTROLES TÁCTILES</span></div></div></section>
+    <section class="game-footer-cta"><p>La partida termina. La conversación sigue.</p><a href="../paginas/argumentos.html">Explorar los temas detrás del juego <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer"><span>NO A MILEI · UNA MIRADA CIUDADANA</span><a href="../index.html">Volver al inicio ↑</a></footer>
+  <div class="sprite-library" aria-hidden="true"><img id="sprite-player" src="../imagenes/jugadora.svg" alt=""><img id="sprite-monster" src="../imagenes/monstruo-milei.svg" alt=""></div>
+</body>
+</html>
